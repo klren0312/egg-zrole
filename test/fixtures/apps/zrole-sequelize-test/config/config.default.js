@@ -1,6 +1,6 @@
 'use strict';
 
-const { SequelizeAdapter } = require('casbin-sequelize-adapter')
+const { SequelizeAdapter } = require('./node_modules/casbin-sequelize-adapter')
 
 exports.keys = '123456';
 
