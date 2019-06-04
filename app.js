@@ -18,6 +18,8 @@ const createZrole = async config => {
 
 
 module.exports = app => {
-  app.zrole = createZrole(app.config.zrole);
+  app.beforeStart(async () => {
+    app.zrole = await createZrole(app.config.zrole);
+  });
 };
 
