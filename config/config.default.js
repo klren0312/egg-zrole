@@ -9,5 +9,5 @@ exports.zrole = {
   useAdapter: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
-  adapterConfig: () => {}
+  adapterConfig: () => {},
 };
