@@ -1,7 +1,6 @@
 # egg-zrole
 
 [![NPM version][npm-image]][npm-url]
-[![David deps][david-image]][david-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
