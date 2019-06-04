@@ -4,8 +4,8 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    let e = await this.app.zrole
-    e.addPolicy('xdd', '/', 'GET')
+    const e = await this.app.zrole;
+    e.addPolicy('xdd', '/', 'GET');
     this.ctx.body = 'hi, ' + this.app.plugins.zrole.name;
   }
 }

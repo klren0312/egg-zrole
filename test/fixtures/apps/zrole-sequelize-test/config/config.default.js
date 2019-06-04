@@ -1,6 +1,6 @@
 'use strict';
 
-const { SequelizeAdapter } = require('./node_modules/casbin-sequelize-adapter')
+const { SequelizeAdapter } = require('casbin-sequelize-adapter');
 
 exports.keys = '123456';
 
@@ -17,7 +17,7 @@ exports.zrole = {
     return null;
   },
   adapterConfig: async () => {
-    const connect =  await SequelizeAdapter.newAdapter(`mysql://root:@localhost:3306/`)
-    return connect
-  }
+    const connect = await SequelizeAdapter.newAdapter('mysql://root:@localhost:3306/');
+    return connect;
+  },
 };

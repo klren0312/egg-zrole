@@ -7,7 +7,7 @@ const createZrole = async config => {
   if (!config.useAdapter) {
     enforcer = await newEnforcer(config.model, config.policy);
   } else {
-    const connect = await config.adapterConfig()
+    const connect = await config.adapterConfig();
     enforcer = await newEnforcer(config.model, connect);
   }
   if (!(enforcer instanceof Enforcer)) {
