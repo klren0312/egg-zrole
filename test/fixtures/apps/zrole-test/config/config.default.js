@@ -2,8 +2,6 @@
 
 exports.keys = '123456';
 
-exports.middleware = [ 'zrole' ];
-
 exports.zrole = {
   useAdapter: false,
   model: './example/zrole_model.conf',

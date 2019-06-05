@@ -4,8 +4,6 @@ const { SequelizeAdapter } = require('casbin-sequelize-adapter');
 
 exports.keys = '123456';
 
-exports.middleware = [ 'zrole' ];
-// const connect = await SequelizeAdapter.newAdapter(`mysql://root:@localhost:3306`)
 exports.zrole = {
   useAdapter: true,
   model: './example/zrole_model.conf',

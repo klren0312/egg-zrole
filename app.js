@@ -1,5 +1,6 @@
 'use strict';
 
+const assert = require('assert');
 const { Enforcer, newEnforcer } = require('casbin');
 
 const createZrole = async config => {
@@ -16,10 +17,23 @@ const createZrole = async config => {
   return enforcer;
 };
 
+const MIDDLEWARE_NAME = 'zrole';
 
 module.exports = app => {
+  const { config } = app;
+
   app.beforeStart(async () => {
-    app.zrole = await createZrole(app.config.zrole);
+    app.zrole = await createZrole(config.zrole);
   });
+
+  // auto add `zrole` to the middleware
+  const index = config.appMiddleware.indexOf(MIDDLEWARE_NAME);
+  assert.equal(
+    index,
+    -1,
+    `Duplication of middleware name found: ${MIDDLEWARE_NAME}. Rename your middleware other than "${MIDDLEWARE_NAME}" please.`
+  );
+
+  config.appMiddleware.unshift(MIDDLEWARE_NAME);
 };
 

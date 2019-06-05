@@ -52,6 +52,7 @@ exports.zrole = {
 **Tips:**
 
  - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapterConfig.
+ - in `> 1.0.5` you don't need to add the `zrole` to middleware.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
@@ -62,10 +63,11 @@ Now, You can see [test/fixtures](test/fixtures), there are two example
 
 ### 1.[test/fixtures/zrole-sequelize-test](test/fixtures/zrole-sequelize-test).
 
- - Use `Sequlize` and `MySQL` to control permission, in controller file, you can see `this.app.zrole.addPolicy('xdd', '/', 'GET')`, it test the policy's dynamic addition; and you need to set `useAdapter` to `true`
+ - Use `Sequlize` and `MySQL` to control permission, in controller file, you can see `this.app.zrole.addPolicy('xdd', '/', 'GET')`, it test the policy's dynamic addition; and you need to set `useAdapter` to `true`;
  - The casbin sequelize adapter, we use `casbin-sequelize-adapter`, about it, you can see https://github.com/node-casbin/sequelize-adapter
  - It will auto create the database that name is `casbin`, when you don't set the database, and don't set `SequelizeAdapter.newAdapter` second params to `ture`
  - If you want to use own database, you can set `adapterConfig`:
+
 ```javascript
 // example config.default.js
 exports.zrole = {
