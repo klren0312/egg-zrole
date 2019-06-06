@@ -7,4 +7,4 @@ module.exports = app => {
     app.zrole.addPolicy('xdd', '/', 'GET');
     app.zrole.addPolicy('xdd', '/remove', 'GET');
   });
-}
+};

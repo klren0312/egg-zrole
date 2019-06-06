@@ -2,33 +2,33 @@
 
 const mock = require('egg-mock');
 
-// describe('test/zrole.test.js', () => {
-//   let app;
-//   before(() => {
-//     app = mock.app({
-//       baseDir: 'apps/zrole-test',
-//     });
-//     return app.ready();
-//   });
+describe('test/zrole.test.js', () => {
+  let app;
+  before(() => {
+    app = mock.app({
+      baseDir: 'apps/zrole-test',
+    });
+    return app.ready();
+  });
 
-//   after(() => app.close());
-//   afterEach(mock.restore);
+  after(() => app.close());
+  afterEach(mock.restore);
 
-//   it('should GET /', () => {
-//     return app.httpRequest()
-//       .get('/')
-//       .set('Authorization', 'js')
-//       .expect(403);
-//   });
+  it('should GET /', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', 'js')
+      .expect(403);
+  });
 
-//   it('should GET /', () => {
-//     return app.httpRequest()
-//       .get('/')
-//       .set('Authorization', 'zzes')
-//       .expect('hi, zrole')
-//       .expect(200);
-//   });
-// });
+  it('should GET /', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', 'zzes')
+      .expect('hi, zrole')
+      .expect(200);
+  });
+});
 
 describe('test sequlize', () => {
   let app;
@@ -41,8 +41,7 @@ describe('test sequlize', () => {
 
   after(() => app.close());
   afterEach(mock.restore);
-  
-  
+
   it('GET /, 200', () => {
     return app.httpRequest()
       .get('/')
@@ -56,8 +55,8 @@ describe('test sequlize', () => {
       .get('/remove')
       .set('Authorization', 'xdd')
       .expect('remove successful')
-      .expect(200)
-  })
+      .expect(200);
+  });
 
   it('after remove, get 403', () => {
     return app.httpRequest()
