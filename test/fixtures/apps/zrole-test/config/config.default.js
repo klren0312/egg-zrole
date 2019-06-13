@@ -4,6 +4,7 @@ exports.keys = '123456';
 
 exports.zrole = {
   useAdapter: false,
+  useAnonymous: true,
   model: './example/zrole_model.conf',
   policy: './example/zrole_policy.csv',
   getUser(ctx) {

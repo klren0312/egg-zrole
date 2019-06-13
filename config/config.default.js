@@ -7,6 +7,7 @@
  */
 exports.zrole = {
   useAdapter: false,
+  useAnonymous: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
   adapterConfig: () => {},

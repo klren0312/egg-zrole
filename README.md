@@ -89,11 +89,17 @@ exports.zrole = {
 ### 2.[test/fixtures/zrole-test](test/fixtures/zrole-test).
 
 model and policy use the fixed file
+If you set `useAnonymous` to `true`, the request that has no header(Authorization) will be the `anonymous` user. It will access the `anonymous` api, like,
+```
+p, anonymous, /anonymous, GET
+```
+
 
 ```javascript
 // example
 exports.zrole = {
   useAdapter: false,
+  useAnonymous: true,
   model: './example/zrole_model.conf',
   policy: './example/zrole_policy.csv',
   getUser(ctx) {
