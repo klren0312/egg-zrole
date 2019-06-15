@@ -1,6 +1,6 @@
 {
   "name": "egg-zrole",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "casbin plugin for eggjs",
   "eggPlugin": {
     "name": "zrole"
