@@ -9,8 +9,7 @@ module.exports = options => {
       if (!user && useAnonymous) {
         user = 'anonymous';
       }
-      console.log(user, useAnonymous);
-      const authzorizer = ctx.app.zrole.enforce(user, path, method);
+      const authzorizer = await ctx.app.zrole.enforce(user, path, method);
       if (!authzorizer) {
         ctx.status = 403;
       } else {
