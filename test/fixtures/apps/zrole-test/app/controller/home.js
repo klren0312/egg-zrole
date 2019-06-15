@@ -10,6 +10,10 @@ class HomeController extends Controller {
   async anonymous() {
     this.ctx.body = 'hi, anonymous';
   }
+
+  async middle() {
+    this.ctx.body = 'hi, middle';
+  }
 }
 
 module.exports = HomeController;

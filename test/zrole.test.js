@@ -35,6 +35,13 @@ describe('test/zrole.test.js', () => {
       .expect('hi, anonymous')
       .expect(200);
   });
+
+  it('should GET /middle, test middleware next', () => {
+    return app.httpRequest()
+      .get('/middle')
+      .set('Authorization', 'jk')
+      .expect(403);
+  });
 });
 
 describe('test sequlize', () => {

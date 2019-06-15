@@ -13,8 +13,9 @@ module.exports = options => {
       const authzorizer = ctx.app.zrole.enforce(user, path, method);
       if (!authzorizer) {
         ctx.status = 403;
+      } else {
+        await next();
       }
-      await next();
     } catch (e) {
       throw e;
     }
