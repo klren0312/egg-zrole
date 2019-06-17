@@ -78,5 +78,4 @@ describe('test sequlize', () => {
       .set('Authorization', 'xdd')
       .expect(403);
   });
-
 });

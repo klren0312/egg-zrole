@@ -6,9 +6,10 @@ exports.keys = '123456';
 
 exports.zrole = {
   useAdapter: true,
+  usePolicyInit: true,
   model: './example/zrole_model.conf',
   policy: './example/zrole_policy.csv',
-  getUser(ctx) {
+  getUser: ctx => {
     if (ctx.headers.authorization) {
       return ctx.headers.authorization;
     }
@@ -17,5 +18,9 @@ exports.zrole = {
   adapterConfig: async () => {
     const connect = await SequelizeAdapter.newAdapter('mysql://root:@localhost:3306/');
     return connect;
+  },
+  initPolicy: zrole => {
+    zrole.addPolicy('xdd', '/', 'GET');
+    zrole.addPolicy('xdd', '/remove', 'GET');
   },
 };

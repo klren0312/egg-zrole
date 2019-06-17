@@ -43,16 +43,21 @@ exports.zrole = {
 // {app_root}/config/config.default.js
 exports.zrole = {
   useAdapter: false,
+  useAnonymous: false,
+  usePolicyInit: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
-  adapterConfig: () => {}
+  adapterConfig: () => {},
+  getUser: (ctx) => {},
+  initPolicy: () => {}
 };
 ```
 
 **Tips:**
 
  - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapterConfig.
- - in `> 1.0.5` you don't need to add the `zrole` to middleware.
+ - In `> 1.0.5` you don't need to add the `zrole` to middleware.
+ - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 

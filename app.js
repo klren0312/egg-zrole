@@ -24,8 +24,10 @@ module.exports = app => {
 
   app.beforeStart(async () => {
     app.zrole = await createZrole(config.zrole);
+    if (config.zrole.usePolicyInit) {
+      config.zrole.initPolicy(app.zrole);
+    }
   });
-
   // auto add `zrole` to the middleware
   const index = config.appMiddleware.indexOf(MIDDLEWARE_NAME);
   assert.equal(

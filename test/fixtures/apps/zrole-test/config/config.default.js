@@ -7,7 +7,7 @@ exports.zrole = {
   useAnonymous: true,
   model: './example/zrole_model.conf',
   policy: './example/zrole_policy.csv',
-  getUser(ctx) {
+  getUser: ctx => {
     if (ctx.headers.authorization) {
       return ctx.headers.authorization;
     }
