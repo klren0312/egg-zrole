@@ -11,7 +11,11 @@ module.exports = options => {
       }
       const authzorizer = await ctx.app.zrole.enforce(user, path, method);
       if (!authzorizer) {
-        ctx.status = 403;
+        if (options.useCustomResponse) {
+          options.customResponse(ctx);
+        } else {
+          ctx.status = 403;
+        }
       } else {
         await next();
       }

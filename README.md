@@ -45,11 +45,13 @@ exports.zrole = {
   useAdapter: false,
   useAnonymous: false,
   usePolicyInit: false,
+  useCustomResponse: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
   adapterConfig: () => {},
   getUser: (ctx) => {},
-  initPolicy: () => {}
+  initPolicy: () => {},
+  customResponse: (ctx) => {}
 };
 ```
 
@@ -58,6 +60,7 @@ exports.zrole = {
  - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapterConfig.
  - In `> 1.0.5` you don't need to add the `zrole` to middleware.
  - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
+ - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response
 
 see [config/config.default.js](config/config.default.js) for more detail.
 

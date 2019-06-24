@@ -9,9 +9,11 @@ exports.zrole = {
   useAdapter: false,
   useAnonymous: false,
   usePolicyInit: false,
+  useCustomResponse: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
   adapterConfig: () => {},
   getUser: (/* ctx */) => {},
   initPolicy: (/* ctx */) => {},
+  customResponse: (/* ctx */) => {},
 };
