@@ -57,10 +57,13 @@ exports.zrole = {
 
 **Tips:**
 
- - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapterConfig.
  - In `> 1.0.5` you don't need to add the `zrole` to middleware.
+ - You must set the `model` path; When you don't use the adapter, you also need to set `policy` path.
+ - If your userinfo not in the `Authorization`, you should use `getUser` method to set how to get userinfo that can check the user role.
+ - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapter, use `adapterConfig` method.
  - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
- - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response
+ - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response.
+ - If you need to use default `anonymous` role, you can set `useAnonymous` to `true`.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
