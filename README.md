@@ -51,7 +51,8 @@ exports.zrole = {
   adapterConfig: () => {},
   getUser: (ctx) => {},
   initPolicy: () => {},
-  customResponse: (ctx) => {}
+  customResponse: (ctx) => {},
+  useAutoMiddleware: true,
 };
 ```
 
@@ -64,6 +65,7 @@ exports.zrole = {
  - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
  - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response.
  - If you need to use default `anonymous` role, you can set `useAnonymous` to `true`.
+ - In v1.3.0, you can set `useAutoMiddleware` to false (default is true), then the zrole middleware will not add to your middleware array, you need to write middleware yourself.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
@@ -73,6 +75,8 @@ see [config/config.default.js](config/config.default.js) for more detail.
 Now, You can see [test/fixtures](test/fixtures), there are two example
 
 ### 1.[test/fixtures/zrole-sequelize-test](test/fixtures/zrole-sequelize-test).
+> this test project, show the following features: 
+>1.sequelize adapter; 2.init policy
 
  - Use `Sequlize` and `MySQL` to control permission, in controller file, you can see `this.app.zrole.addPolicy('xdd', '/', 'GET')`, it test the policy's dynamic addition; and you need to set `useAdapter` to `true`;
  - The casbin sequelize adapter, we use `casbin-sequelize-adapter`, about it, you can see https://github.com/node-casbin/sequelize-adapter
@@ -83,21 +87,29 @@ Now, You can see [test/fixtures](test/fixtures), there are two example
 // example config.default.js
 exports.zrole = {
   useAdapter: true,
+  usePolicyInit: true,
   model: './example/zrole_model.conf',
-  getUser(ctx) {
+  policy: './example/zrole_policy.csv',
+  getUser: ctx => {
     if (ctx.headers.authorization) {
       return ctx.headers.authorization;
     }
     return null;
   },
   adapterConfig: async () => {
-    const connect =  await SequelizeAdapter.newAdapter(`mysql://root:@localhost:3306/yourDatabase`, true)
-    return connect
-  }
+    const connect = await SequelizeAdapter.newAdapter('mysql://root:@localhost:3306/');
+    return connect;
+  },
+  initPolicy: zrole => {
+    zrole.addPolicy('xdd', '/', 'GET');
+    zrole.addPolicy('xdd', '/remove', 'GET');
+  },
 };
 ```
 
 ### 2.[test/fixtures/zrole-test](test/fixtures/zrole-test).
+> this test project, show the following features: 
+>1.anonymous; 2.custom response
 
 model and policy use the fixed file
 If you set `useAnonymous` to `true`, the request that has no header(Authorization) will be the `anonymous` user. It will access the `anonymous` api, like,
@@ -105,20 +117,37 @@ If you set `useAnonymous` to `true`, the request that has no header(Authorizatio
 p, anonymous, /anonymous, GET
 ```
 
-
 ```javascript
 // example
 exports.zrole = {
-  useAdapter: false,
   useAnonymous: true,
+  useCustomResponse: true,
   model: './example/zrole_model.conf',
   policy: './example/zrole_policy.csv',
-  getUser(ctx) {
+  getUser: ctx => {
     if (ctx.headers.authorization) {
       return ctx.headers.authorization;
     }
     return null;
-  }
+  },
+  customResponse: ctx => {
+    ctx.status = 403;
+    ctx.body = 'Your do not has permission to access';
+  },
+};
+```
+
+### 3.[test/fixtures/zrole-no-auto-add-middleware-test](test/fixtures/zrole-no-auto-add-middleware-test).
+> this test project, show the following features: 
+>1.use custom middleware
+
+
+```javascript
+// example
+exports.zrole = {
+  useAutoMiddleware: false,
+  model: './example/zrole_model.conf',
+  policy: './example/zrole_policy.csv',
 };
 ```
 

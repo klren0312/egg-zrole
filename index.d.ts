@@ -31,6 +31,10 @@ declare module 'egg' {
        */
       policy?: string;
       /**
+       * If you don't want to zrole auto add the middleware, make it to false
+       */
+      useAutoMiddleware?: boolean;
+      /**
        * Config adapter instead of policy file
        */
       adapterConfig(): object;

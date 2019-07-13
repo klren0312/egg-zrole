@@ -6,6 +6,41 @@ describe('test/zrole.test.js', () => {
   let app;
   before(() => {
     app = mock.app({
+      baseDir: 'apps/zrole-no-auto-add-middleware-test',
+    });
+    return app.ready();
+  });
+
+  after(() => app.close());
+  afterEach(mock.restore);
+
+  it('should GET /, no middleware', () => {
+    return app.httpRequest()
+      .get('/')
+      .expect('no middleware')
+      .expect(200);
+  });
+
+  it('should GET /middleware, has middleware, no permission', () => {
+    return app.httpRequest()
+      .get('/middleware')
+      .set('Authorization', 'noAuth')
+      .expect(403);
+  });
+
+  it('should GET /middleware, has middleware, has permission', () => {
+    return app.httpRequest()
+      .get('/middleware')
+      .set('Authorization', 'hasAuth')
+      .expect('has middleware')
+      .expect(200);
+  });
+});
+
+describe('test/zrole.test.js', () => {
+  let app;
+  before(() => {
+    app = mock.app({
       baseDir: 'apps/zrole-test',
     });
     return app.ready();
@@ -46,38 +81,38 @@ describe('test/zrole.test.js', () => {
   });
 });
 
-// describe('test sequlize', () => {
-//   let app;
-//   before(() => {
-//     app = mock.app({
-//       baseDir: 'apps/zrole-sequelize-test',
-//     });
-//     return app.ready();
-//   });
+describe('test sequlize', () => {
+  let app;
+  before(() => {
+    app = mock.app({
+      baseDir: 'apps/zrole-sequelize-test',
+    });
+    return app.ready();
+  });
 
-//   after(() => app.close());
-//   afterEach(mock.restore);
+  after(() => app.close());
+  afterEach(mock.restore);
 
-//   it('GET /, 200', () => {
-//     return app.httpRequest()
-//       .get('/')
-//       .set('Authorization', 'xdd')
-//       .expect('hi, zrole')
-//       .expect(200);
-//   });
+  it('GET /, 200', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', 'xdd')
+      .expect('hi, zrole')
+      .expect(200);
+  });
 
-//   it('remove policy', () => {
-//     return app.httpRequest()
-//       .get('/remove')
-//       .set('Authorization', 'xdd')
-//       .expect('remove successful')
-//       .expect(200);
-//   });
+  it('remove policy', () => {
+    return app.httpRequest()
+      .get('/remove')
+      .set('Authorization', 'xdd')
+      .expect('remove successful')
+      .expect(200);
+  });
 
-//   it('after remove, get 403', () => {
-//     return app.httpRequest()
-//       .get('/')
-//       .set('Authorization', 'xdd')
-//       .expect(403);
-//   });
-// });
+  it('after remove, get 403', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', 'xdd')
+      .expect(403);
+  });
+});

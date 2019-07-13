@@ -3,7 +3,6 @@
 exports.keys = '123456';
 
 exports.zrole = {
-  useAdapter: false,
   useAnonymous: true,
   useCustomResponse: true,
   model: './example/zrole_model.conf',

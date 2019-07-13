@@ -6,14 +6,15 @@
  * @property {String} SOME_KEY - some description
  */
 exports.zrole = {
-  useAdapter: false,
-  useAnonymous: false,
-  usePolicyInit: false,
-  useCustomResponse: false,
   model: '/example/zrole_model.conf',
   policy: '/example/zrole_policy.csv',
-  adapterConfig: () => {},
   getUser: (/* ctx */) => {},
+  useAdapter: false,
+  adapterConfig: () => {},
+  useAnonymous: false,
+  usePolicyInit: false,
   initPolicy: (/* ctx */) => {},
+  useCustomResponse: false,
   customResponse: (/* ctx */) => {},
+  useAutoMiddleware: true,
 };
