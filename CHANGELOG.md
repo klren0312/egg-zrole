@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/klren0312/egg-zrole/compare/v1.3.0...v1.5.0) (2019-07-13)
+
+
+### Features
+
+* add multi roles check and add super manage name setting ([b4ae96d](https://github.com/klren0312/egg-zrole/commit/b4ae96d)), closes [#6](https://github.com/klren0312/egg-zrole/issues/6)
+
+
+
 # [1.3.0](https://github.com/klren0312/egg-zrole/compare/v1.2.2...v1.3.0) (2019-07-13)
 
 

@@ -53,6 +53,7 @@ exports.zrole = {
   initPolicy: () => {},
   customResponse: (ctx) => {},
   useAutoMiddleware: true,
+  useSuperManage: 'admin'
 };
 ```
 
@@ -65,7 +66,8 @@ exports.zrole = {
  - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
  - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response.
  - If you need to use default `anonymous` role, you can set `useAnonymous` to `true`.
- - In v1.3.0, you can set `useAutoMiddleware` to false (default is true), then the zrole middleware will not add to your middleware array, you need to write middleware yourself.
+ - In `v1.3.0`, you can set `useAutoMiddleware` to false (default is true), then the zrole middleware will not add to your middleware array, you need to write middleware yourself.
+ - In `v1.5.0`, you can set super manage name to jump role check.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
@@ -109,7 +111,7 @@ exports.zrole = {
 
 ### 2.[test/fixtures/zrole-test](test/fixtures/zrole-test).
 > this test project, show the following features: 
->1.anonymous; 2.custom response; 3.multi roles check
+>1.anonymous; 2.custom response; 3.multi roles check;4.super manage
 
 model and policy use the fixed file
 If you set `useAnonymous` to `true`, the request that has no header(Authorization) will be the `anonymous` user. It will access the `anonymous` api, like,
@@ -134,6 +136,7 @@ exports.zrole = {
     ctx.status = 403;
     ctx.body = 'Your do not has permission to access';
   },
+  useSuperManage: 'admin'
 };
 ```
 

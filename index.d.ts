@@ -35,6 +35,10 @@ declare module 'egg' {
        */
       useAutoMiddleware?: boolean;
       /**
+       * If you want to set a super manage role to jump role check
+       */
+      useSuperManage?: String;
+      /**
        * Config adapter instead of policy file
        */
       adapterConfig(): object;
