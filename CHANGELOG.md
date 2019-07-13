@@ -1,4 +1,13 @@
-## 1.2.2 (2019-06-24)
+# [1.3.0](https://github.com/klren0312/egg-zrole/compare/v1.2.2...v1.3.0) (2019-07-13)
+
+
+### Features
+
+* can custom middleware, do not use the built-in middleware ([5f4637d](https://github.com/klren0312/egg-zrole/commit/5f4637d)), closes [#5](https://github.com/klren0312/egg-zrole/issues/5)
+
+
+
+## [1.2.2](https://github.com/klren0312/egg-zrole/compare/f233cf8...v1.2.2) (2019-06-25)
 
 
 ### Bug Fixes
