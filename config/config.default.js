@@ -16,5 +16,6 @@ exports.zrole = {
   initPolicy: (/* ctx */) => {},
   useCustomResponse: false,
   customResponse: (/* ctx */) => {},
-  useAutoMiddleware: true,
+  useAutoMiddleware: true, // issue #5: https://github.com/klren0312/egg-zrole/issues/5
+  useSuperManage: 'admin', // issue $6: https://github.com/klren0312/egg-zrole/issues/6
 };

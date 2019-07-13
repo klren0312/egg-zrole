@@ -9,7 +9,12 @@ exports.zrole = {
   policy: './example/zrole_policy.csv',
   getUser: ctx => {
     if (ctx.headers.authorization) {
-      return ctx.headers.authorization;
+      try {
+        const auth = JSON.parse(ctx.headers.authorization);
+        return auth;
+      } catch (error) {
+        return ctx.headers.authorization;
+      }
     }
     return null;
   },
@@ -17,4 +22,5 @@ exports.zrole = {
     ctx.status = 403;
     ctx.body = 'Your do not has permission to access';
   },
+  useSuperManage: 'admin',
 };

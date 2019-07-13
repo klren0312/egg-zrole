@@ -60,7 +60,7 @@ exports.zrole = {
 
  - In `> 1.0.5` you don't need to add the `zrole` to middleware.
  - You must set the `model` path; When you don't use the adapter, you also need to set `policy` path.
- - If your userinfo not in the `Authorization`, you should use `getUser` method to set how to get userinfo that can check the user role.
+ - If your userinfo not in the `Authorization`, you should use `getUser` method to set how to get userinfo that can check the user role.**If don't set the getUser method, it will jump.**
  - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapter, use `adapterConfig` method.
  - If you need to init the policy, you can set `usePolicyInit` to `true`, and use `initPolicy` method to set role.
  - If you need to custom your response, when 403; You can set `useCustomResponse` to `true`, and use `customResponse` method to custom the response.
@@ -109,7 +109,7 @@ exports.zrole = {
 
 ### 2.[test/fixtures/zrole-test](test/fixtures/zrole-test).
 > this test project, show the following features: 
->1.anonymous; 2.custom response
+>1.anonymous; 2.custom response; 3.multi roles check
 
 model and policy use the fixed file
 If you set `useAnonymous` to `true`, the request that has no header(Authorization) will be the `anonymous` user. It will access the `anonymous` api, like,

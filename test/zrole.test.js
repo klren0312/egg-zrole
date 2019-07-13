@@ -79,6 +79,30 @@ describe('test/zrole.test.js', () => {
       .expect('Your do not has permission to access')
       .expect(403);
   });
+
+  it('should GET /, test multi roles, has one role that can access', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', '["jk", "zzes"]')
+      .expect('hi, zrole')
+      .expect(200);
+  });
+
+  it('should GET /, test multi roles, both roles can not access', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', '["jk", "ts"]')
+      .expect('Your do not has permission to access')
+      .expect(403);
+  });
+
+  it('should GET /, test custom set superManage, it will jump the role check', () => {
+    return app.httpRequest()
+      .get('/')
+      .set('Authorization', '["admin", "ts"]')
+      .expect('hi, zrole')
+      .expect(200);
+  });
 });
 
 describe('test sequlize', () => {
