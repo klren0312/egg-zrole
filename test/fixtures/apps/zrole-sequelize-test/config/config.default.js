@@ -16,7 +16,7 @@ exports.zrole = {
     return null;
   },
   adapterConfig: async () => {
-    const connect = await SequelizeAdapter.newAdapter('mysql://ztest123:qwer1234@$db4free.net:3306/ztest123`, true)');
+    const connect = await SequelizeAdapter.newAdapter('mysql://ztest123:qwer1234@db4free.net:3306/ztest123`, true)');
     return connect;
   },
   initPolicy: zrole => {
