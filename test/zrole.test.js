@@ -105,7 +105,7 @@ describe('test/zrole.test.js', () => {
   });
 });
 
-describe('test sequlize', () => {
+describe('test sequlize', async () => {
   let app;
   before(() => {
     app = mock.app({
@@ -135,7 +135,7 @@ describe('test sequlize', () => {
 
   it('after remove, get 403', () => {
     return app.httpRequest()
-      .get('/')
+      .get('/remove')
       .set('Authorization', 'xdd')
       .expect(403);
   });

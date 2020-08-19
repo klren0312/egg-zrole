@@ -8,7 +8,6 @@ exports.zrole = {
   useAdapter: true,
   usePolicyInit: true,
   model: './example/zrole_model.conf',
-  policy: './example/zrole_policy.csv',
   getUser: ctx => {
     if (ctx.headers.authorization) {
       return ctx.headers.authorization;

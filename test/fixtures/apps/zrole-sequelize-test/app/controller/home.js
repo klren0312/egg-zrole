@@ -14,7 +14,7 @@ class HomeController extends Controller {
    * remove xdd to get /
    */
   async remove() {
-    this.ctx.app.zrole.removePolicy('xdd', '/', 'GET');
+    await this.ctx.app.zrole.removePolicy('xdd', '/remove', 'GET');
     this.ctx.body = 'remove successful';
   }
 }
