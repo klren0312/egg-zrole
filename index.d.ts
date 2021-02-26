@@ -45,17 +45,17 @@ declare module 'egg' {
       /**
        * Use it to setting how to get user role
        * If not set, it will use default method to get user
-       * @param ctx Egg context
+       * @param {object} ctx Egg context
        */
       getUser(ctx: object): String;
       /**
        * If you need init policy, before your project start
-       * @param ctx Egg context
+       * @param {object} ctx Egg context
        */
       initPolicy(ctx: object): void;
       /**
        * Config it to response someone has no permisson by yourself
-       * @param ctx Egg context
+       * @param {object} ctx Egg context
        */
       customResponse(ctx: object): void;
     };
