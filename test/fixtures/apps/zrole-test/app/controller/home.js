@@ -7,6 +7,11 @@ class HomeController extends Controller {
     this.ctx.body = 'hi, ' + this.app.plugins.zrole.name;
   }
 
+  async queryTest() {
+    const { ctx } = this;
+    this.ctx.body = 'hi, ' + ctx.query.name;
+  }
+
   async anonymous() {
     this.ctx.body = 'hi, anonymous';
   }

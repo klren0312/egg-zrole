@@ -1,6 +1,6 @@
 {
   "name": "egg-zrole",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "casbin plugin for eggjs",
   "eggPlugin": {
     "name": "zrole"
@@ -11,7 +11,7 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "casbin": "^5.14.0"
+    "casbin": "^5.15.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

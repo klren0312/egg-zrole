@@ -65,6 +65,14 @@ describe('test/zrole.test.js', () => {
       .expect(200);
   });
 
+  it('should GET /query, has permission, path has query params, use keyMatch5', () => {
+    return app.httpRequest()
+      .get('/query?name=zzes')
+      .set('Authorization', 'zzes')
+      .expect('hi, zzes')
+      .expect(200);
+  });
+
   it('should GET /anonymous, is anonymous', () => {
     return app.httpRequest()
       .get('/anonymous')

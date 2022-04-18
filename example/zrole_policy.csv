@@ -1,3 +1,4 @@
 p, zzes, /, GET
+p, zzes, /query, GET
 p, anonymous, /anonymous, GET
 p, hasAuth, /middleware, GET
