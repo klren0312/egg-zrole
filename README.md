@@ -69,6 +69,7 @@ exports.zrole = {
  - In `v1.3.0`, you can set `useAutoMiddleware` to false (default is true), then the zrole middleware will not add to your middleware array, you need to write middleware yourself.
  - In `v1.5.0`, you can set super manage name to jump role check.
  - After `v2.0.2`, support the `keyMatch5` matcher.
+ - In `v3.0.0`, only support Nodejs v16.0.0+
 
 see [config/config.default.js](config/config.default.js) for more detail.
 

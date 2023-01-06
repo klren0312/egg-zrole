@@ -9,7 +9,7 @@ class HomeController extends Controller {
 
   async queryTest() {
     const { ctx } = this;
-    this.ctx.body = 'hi, ' + ctx.query.name;
+    ctx.body = 'hi, ' + ctx.query.name;
   }
 
   async anonymous() {
