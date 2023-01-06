@@ -59,7 +59,7 @@ exports.zrole = {
 
 **Tips:**
 
- - In `> 1.0.5` you don't need to add the `zrole` to middleware.
+ - After `v1.0.5` you don't need to add the `zrole` to middleware.
  - You must set the `model` path; When you don't use the adapter, you also need to set `policy` path.
  - If your userinfo not in the `Authorization`, you should use `getUser` method to set how to get userinfo that can check the user role.**If don't set the getUser method, it will jump.**
  - If use some casbin adapter, you need make `useAdapter` to `true`, then config the adapter, use `adapterConfig` method.
@@ -68,6 +68,7 @@ exports.zrole = {
  - If you need to use default `anonymous` role, you can set `useAnonymous` to `true`.
  - In `v1.3.0`, you can set `useAutoMiddleware` to false (default is true), then the zrole middleware will not add to your middleware array, you need to write middleware yourself.
  - In `v1.5.0`, you can set super manage name to jump role check.
+ - After `v2.0.2`, support the `keyMatch5` matcher.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
