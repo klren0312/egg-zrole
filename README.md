@@ -2,7 +2,6 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
@@ -10,8 +9,6 @@
 [npm-url]: https://npmjs.org/package/egg-zrole
 [codecov-image]: https://img.shields.io/codecov/c/github/klren0312/egg-zrole.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/klren0312/egg-zrole?branch=master
-[david-image]: https://img.shields.io/david/klren0312/egg-zrole.svg?style=flat-square
-[david-url]: https://david-dm.org/klren0312/egg-zrole
 [snyk-image]: https://snyk.io/test/npm/egg-zrole/badge.svg?style=flat-square
 [snyk-url]: https://snyk.io/test/npm/egg-zrole
 [download-image]: https://img.shields.io/npm/dm/egg-zrole.svg?style=flat-square
