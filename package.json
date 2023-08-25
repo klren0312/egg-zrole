@@ -1,6 +1,6 @@
 {
   "name": "egg-zrole",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "casbin plugin for eggjs",
   "eggPlugin": {
     "name": "zrole"
@@ -12,10 +12,10 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "casbin": "^5.26.1"
+    "casbin": "^5.26.2"
   },
   "devDependencies": {
-    "casbin-sequelize-adapter": "^2.4.0",
+    "casbin-sequelize-adapter": "^2.7.0",
     "egg": "^3",
     "egg-bin": "^5",
     "egg-ci": "^2",

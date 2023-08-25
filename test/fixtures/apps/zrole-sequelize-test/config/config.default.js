@@ -15,7 +15,17 @@ exports.zrole = {
     return null;
   },
   adapterConfig: async () => {
-    const connect = await SequelizeAdapter.newAdapter('mysql://ztest123:qwer1234@db4free.net:3306/ztest123', true);
+    const connect = await SequelizeAdapter.newAdapter(
+      {
+        host: 'db4free.net',
+        port: 3306,
+        database: 'ztest123',
+        username: 'ztest123',
+        password: 'qwer1234',
+        dialect: 'mysql',
+      },
+      true
+    );
     return connect;
   },
   initPolicy: zrole => {

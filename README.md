@@ -98,7 +98,17 @@ exports.zrole = {
     return null;
   },
   adapterConfig: async () => {
-    const connect = await SequelizeAdapter.newAdapter('mysql://root:@localhost:3306/');
+    const connect = await SequelizeAdapter.newAdapter(
+      {
+        host: 'localhost',
+        port: 3306,
+        database: 'test',
+        username: 'root',
+        password: 'root',
+        dialect: 'mysql',
+      },
+      true
+    );
     return connect;
   },
   initPolicy: zrole => {
