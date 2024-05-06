@@ -12,7 +12,7 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "casbin": "^5.26.2"
+    "casbin": "^5.30.0"
   },
   "devDependencies": {
     "casbin-sequelize-adapter": "^2.7.0",
