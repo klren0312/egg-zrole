@@ -6,4 +6,12 @@ coverage/
 run/
 .DS_Store
 *.swp
+config/*.js
+config/*.d.ts
+agent.js
+agent.d.ts
+app.js
+app.d.ts
+app/middleware/zrole.d.ts
+app/middleware/zrole.js
 

@@ -1,0 +1,18 @@
+{
+  "extends": "@eggjs/tsconfig",
+  "compilerOptions": {
+    "module": "Node16",
+    "useUnknownInCatchVariables": false,
+    "target": "ES2022"
+  },
+  "include": [
+    "config",
+    "app.ts",
+    "app/**/**.ts",
+    "index.d.ts",
+    "test/zrole.test.ts"
+  ],
+  "types": [
+    "node"
+  ]
+}
